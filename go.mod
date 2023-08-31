@@ -1,3 +1,3 @@
-module github.com/HEIGE-PCloud/DoIt
+module github.com/michael-taylor/TakeIt
 
 go 1.20

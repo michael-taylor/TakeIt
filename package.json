@@ -1,12 +1,12 @@
 {
-  "name": "doit-src",
-  "version": "0.2.13",
-  "description": "DoIt theme source file",
+  "name": "takeit-src",
+  "version": "0.1.0",
+  "description": "TakeIt theme source file",
   "private": true,
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run build:tailwind --watch\"",
-    "build": "hugo -v --source=exampleSite --themesDir ../.. --gc",
-    "build:preview": "hugo -v --source=exampleSite --themesDir ../.. -D --gc",
+    "build": "hugo --logLevel info --source=exampleSite --themesDir ../.. --gc",
+    "build:preview": "hugo --logLevel info --source=exampleSite --themesDir ../.. -D --gc",
     "server": "hugo server --source=exampleSite --themesDir ../.. -D --disableFastRender",
     "server:production": "hugo server --source=exampleSite --themesDir ../.. --disableFastRender -e production",
     "server:tailwind": "npx tailwindcss --watch -i ./assets/css/tailwind.css -o ./assets/css/main.css",
@@ -15,18 +15,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HEIGE-PCloud/DoIt.git"
+    "url": "git+https://github.com/michael-taylor/TakeIt.git"
   },
   "keywords": [
     "hugo",
     "theme"
   ],
-  "author": "PCloud",
+  "author": "Michael R. Taylor",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/HEIGE-PCloud/DoIt/issues"
+    "url": "https://github.com/michael-taylor/TakeIt/issues"
   },
-  "homepage": "https://github.com/HEIGE-PCloud/DoIt#readme",
+  "homepage": "https://github.com/michael-taylor/TakeIt",
   "dependencies": {
     "@waline/client": "^2.15.6",
     "aplayer": "^1.10.1",
