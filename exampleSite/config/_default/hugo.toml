@@ -4,7 +4,7 @@ baseURL = "https://hugodoit.pages.dev"
 defaultContentLanguage = "en"
 # website title
 # 网站标题
-title = "DoIt"
+title = "TakeIt"
 
 # whether to use robots.txt
 # 是否使用 robots.txt
@@ -22,7 +22,7 @@ enableEmoji = true
 
 # theme
 # 主题
-theme = "DoIt"
+theme = "TakeIt"
 # themes directory
 # 主题目录
 themesDir = "../.."
