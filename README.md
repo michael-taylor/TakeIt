@@ -1,3 +1,13 @@
+# TakeIt Theme | Hugo
+
+This theme is based off of the wonderful [DoIt](https://github.com/HEIGE-PCloud/DoIt) theme by [PCloud](https://github.com/HEIGE-PCloud).
+
+Changes from DoIt include:
+
+* Removal of multiple-author support to simplify single-user blogs
+
+# Original README follows
+
 # DoIt Theme | Hugo
 
 English README | [简体中文说明](https://github.com/HEIGE-PCloud/DoIt/blob/main/README.zh-cn.md)
