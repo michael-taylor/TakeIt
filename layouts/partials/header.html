@@ -13,7 +13,7 @@
                     {{- if .typeit -}}
                         {{- $id := dict "Content" .name "Scratch" $.Scratch "Id" "desktop-header-typeit" | partial "function/id.html" -}}
                         <span id="{{ $id }}" class="typeit"></span>
-                        {{- dict $id (slice $id) | dict "typeitMap" | merge ($.Scratch.Get "this") | $.Scratch.Set "this" -}}
+                        {{- dict $id (slice $id) | dict "typedjsMap" | merge ($.Scratch.Get "this") | $.Scratch.Set "this" -}}
                     {{- else -}}
                         {{- .name -}}
                     {{- end -}}
@@ -112,7 +112,7 @@
                         {{- if .typeit -}}
                             {{- $id := dict "Content" .name "Scratch" $.Scratch "Id" "mobile-header-typeit" | partial "function/id.html" -}}
                             <span id="{{ $id }}" class="typeit"></span>
-                            {{- dict $id (slice $id) | dict "typeitMap" | merge ($.Scratch.Get "this") | $.Scratch.Set "this" -}}
+                            {{- dict $id (slice $id) | dict "typedjsMap" | merge ($.Scratch.Get "this") | $.Scratch.Set "this" -}}
                         {{- else -}}
                             {{- .name -}}
                         {{- end -}}

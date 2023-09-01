@@ -643,39 +643,20 @@ function initMapbox () {
   }
 }
 
-function initTypeit () {
-  if (window.config.typeit) {
-    const typeitConfig = window.config.typeit
-    const speed = typeitConfig.speed ? typeitConfig.speed : 100
-    const cursorSpeed = typeitConfig.cursorSpeed ? typeitConfig.cursorSpeed : 1000
-    const cursorChar = typeitConfig.cursorChar ? typeitConfig.cursorChar : '|'
-    Object.values(typeitConfig.data).forEach(group => {
-      const typeone = (i) => {
-        const id = group[i]
-        if (!document.getElementById(id).hasAttribute('data-typeit-id')) {
-          const instance = new TypeIt(`#${id}`, {
-            strings: window.config.data[id],
-            speed,
-            lifeLike: true,
-            cursorSpeed,
-            cursorChar,
-            waitUntilVisible: true,
-            afterComplete: () => {
-              if (i === group.length - 1) {
-                if (typeitConfig.duration >= 0) {
-                  window.setTimeout(() => {
-                    instance.destroy()
-                  }, typeitConfig.duration)
-                }
-                return
-              }
-              instance.destroy()
-              typeone(i + 1)
-            }
-          }).go()
-        }
+function initTypedJs () {
+  if (window.config.typedjs) {
+    const typedjsConfig = window.config.typedjs
+    const speed = typedjsConfig.speed ? typedjsConfig.speed : 100
+    const cursor = typedjsConfig.cursorChar ? typedjsConfig.cursorChar : '|'
+    Object.values(typedjsConfig.data).forEach(group => {
+      const id = group
+      if (!document.getElementById(id).hasAttribute('data-typedjs-id')) {
+        const instance = new Typed(`#${id}`, {
+          strings: [window.config.data[id]],
+          typeSpeed: speed,
+          cursorChar: cursor,
+        })
       }
-      typeone(0)
     })
   }
 }
@@ -787,7 +768,7 @@ function init () {
   initLightGallery()
   initHighlight()
   initTable()
-  initTypeit()
+  initTypedJs()
   initMapbox()
   initToc()
   onScroll()

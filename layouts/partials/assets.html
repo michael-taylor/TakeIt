@@ -59,12 +59,12 @@
     {{- $config = dict "sharerjs" true | merge $config -}}
 {{- end -}}
 
-{{- /* TypeIt */ -}}
-{{- with (.Scratch.Get "this").typeitMap -}}
-    {{- $typeit := $.Site.Params.typeit -}}
-    {{- $source := $cdn.typeitJS | default "lib/typeit/typeit.min.js" -}}
+{{- /* typed.js */ -}}
+{{- with (.Scratch.Get "this").typedjsMap -}}
+    {{- $typedjs := $.Site.Params.typedjs -}}
+    {{- $source := $cdn.typedJS | default "lib/typedjs/typed.umd.js" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" $.Scratch "Data" | partial "scratch/script.html" -}}
-    {{- $config = dict "speed" $typeit.speed "cursorSpeed" $typeit.cursorSpeed "cursorChar" $typeit.cursorChar "duration" $typeit.duration "data" . | dict "typeit" | merge $config -}}
+    {{- $config = dict "speed" $typedjs.speed "cursorChar" $typedjs.cursorChar "data" . | dict "typedjs" | merge $config -}}
 {{- end -}}
 
 {{- /* KaTeX */ -}}

@@ -21,10 +21,10 @@
 {{- /* trim the newline */ -}}
 {{- $id := dict "Content" $content "Scratch" .Page.Scratch | partial "function/id.html" -}}
 {{- $key := .Get "group" | string | default $id -}}
-{{- $typeitMap := (.Page.Scratch.Get "this").typeitMap | default dict -}}
-{{- $group := index $typeitMap $key -}}
+{{- $typedjsMap := (.Page.Scratch.Get "this").typedjsMap | default dict -}}
+{{- $group := index $typedjsMap $key -}}
 {{- $group = $group | default slice | append $id -}}
-{{- dict $key $group | merge $typeitMap | .Page.Scratch.SetInMap "this" "typeitMap" -}}
+{{- dict $key $group | merge $typedjsMap | .Page.Scratch.SetInMap "this" "typedjsMap" -}}
 
 <div class="typeit">
     {{- printf `<%v id="%v" class="%v"></%v>` $tag $id (delimit $classList " ") $tag | safeHTML -}}

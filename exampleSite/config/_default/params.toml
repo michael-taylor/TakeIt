@@ -511,7 +511,7 @@ cacheRemoteImages = false
 
 # TypeIt config
 # TypeIt 配置
-[typeit]
+[typedjs]
   # typing speed between each step (measured in milliseconds)
   # 每一步的打字速度 (单位是毫秒)
   speed = 100
