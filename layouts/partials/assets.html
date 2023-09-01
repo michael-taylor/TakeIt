@@ -10,18 +10,12 @@
 
     {{- $search := .Site.Params.search -}}
     {{- $config = dict "maxResultLength" $search.maxResultLength "snippetLength" $search.snippetLength "highlightTag" $search.highlightTag "noResultsFound" (T "noResultsFound") | dict "search" | merge $config -}}
-    {{- if eq $search.type "algolia" -}}
-        {{- $js := resources.Get "lib/algoliasearch/algoliasearch-lite.umd.min.js" -}}
-        {{- $_ := $js.RelPermalink -}}
-        {{- $config = dict "type" "algolia" "algoliaIndex" $search.algolia.index "algoliaAppID" $search.algolia.appID "algoliaSearchKey" $search.algolia.searchKey | dict "search" | merge $config -}}
-    {{- else -}}
-        {{- with .Site.Home.OutputFormats.Get "json" -}}
-            {{- $config = dict "type" "fuse" "fuseIndexURL" .RelPermalink | dict "search" | merge $config -}}
-        {{- end -}}
-        {{- $js := resources.Get "lib/fuse/fuse.min.js" -}}
-        {{- $_ := $js.RelPermalink -}}
-        {{- $config = dict "isCaseSensitive" $search.fuse.isCaseSensitive "minMatchCharLength" $search.fuse.minMatchCharLength "findAllMatches" $search.fuse.findAllMatches "location" $search.fuse.location "threshold" $search.fuse.threshold "distance" $search.fuse.distance "ignoreLocation" $search.fuse.ignoreLocation "useExtendedSearch" $search.fuse.useExtendedSearch "ignoreFieldNorm" $search.fuse.ignoreFieldNorm | dict "search" | merge $config -}}
+    {{- with .Site.Home.OutputFormats.Get "json" -}}
+        {{- $config = dict "type" "fuse" "fuseIndexURL" .RelPermalink | dict "search" | merge $config -}}
     {{- end -}}
+    {{- $js := resources.Get "lib/fuse/fuse.min.js" -}}
+    {{- $_ := $js.RelPermalink -}}
+    {{- $config = dict "isCaseSensitive" $search.fuse.isCaseSensitive "minMatchCharLength" $search.fuse.minMatchCharLength "findAllMatches" $search.fuse.findAllMatches "location" $search.fuse.location "threshold" $search.fuse.threshold "distance" $search.fuse.distance "ignoreLocation" $search.fuse.ignoreLocation "useExtendedSearch" $search.fuse.useExtendedSearch "ignoreFieldNorm" $search.fuse.ignoreFieldNorm | dict "search" | merge $config -}}
 {{- end -}}
 
 {{- /* tablesort */ -}}
@@ -46,19 +40,6 @@
     {{- $js := resources.Get "js/lib/twemoji.js" | js.Build $options -}}
     {{- $_ := $js.RelPermalink -}}
     {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-{{- end -}}
-
-{{- /* lightgallery.js */ -}}
-{{- if $params.lightgallery -}}
-    {{- $source := $cdn.lightgalleryCSS | default "lib/lightgallery/lightgallery.min.css" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
-    {{- $source := $cdn.lightgalleryJS | default "lib/lightgallery/lightgallery.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-    {{- $source := $cdn.lightgalleryThumbnailJS | default "lib/lightgallery/lg-thumbnail.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-    {{- $source := $cdn.lightgalleryZoomJS | default "lib/lightgallery/lg-zoom.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-    {{- $config = dict "selector" ".lightgallery" "speed" 400 "hideBarsDelay" 2000 "thumbnail" true "exThumbImage" "data-thumbnail" "thumbWidth" 80 "thumbContHeight" 80 "actualSize" false | dict "lightGallery" | merge $config -}}
 {{- end -}}
 
 {{- $code := $params.code | default dict -}}
@@ -156,43 +137,6 @@
     {{- $js := resources.Get "js/lib/echarts.js" | js.Build $options -}}
     {{- $_ := $js.RelPermalink -}}
     {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-{{- end -}}
-
-{{- /* Mapbox GL */ -}}
-{{- if (.Scratch.Get "this").mapbox -}}
-    {{- $source := $cdn.mapboxGLCSS | default "lib/mapbox-gl/mapbox-gl.min.css" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
-    {{- $source := $cdn.mapboxGLJS | default "lib/mapbox-gl/mapbox-gl.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-    {{- dict "Source" "lib/mapbox-gl/mapbox-gl-language.js" "Minify" true "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-    {{- $config = dict "accessToken" $params.mapbox.accessToken "RTLTextPlugin" "https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.0/mapbox-gl-rtl-text.js" | dict "mapbox" | merge $config -}}
-{{- end -}}
-
-{{- /* Music */ -}}
-{{- if (.Scratch.Get "this").aplayer | or (.Scratch.Get "this").music -}}
-    {{- /* APlayer */ -}}
-    {{- $source := $cdn.aplayerCSS | default "lib/aplayer/APlayer.min.css" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
-    {{- $options := dict "targetPath" "lib/aplayer/dark.min.css" "enableSourceMap" true -}}
-    {{- dict "Source" "lib/aplayer/dark.scss" "ToCSS" $options "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
-    {{- $source := $cdn.aplayerJS | default "lib/aplayer/APlayer.min.js" -}}
-    {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-
-    {{- if (.Scratch.Get "this").music -}}
-        {{- /* MetingJS */ -}}
-        {{- $source := $cdn.metingJS | default "lib/meting/Meting.min.js" -}}
-        {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-        {{- $config = dict "music" true | merge $config -}}
-    {{- else -}}
-        {{- $shims := dict "aplayer" "js/shims/aplayer.js" -}}
-        {{- $options := dict -}}
-        {{- $options = dict "targetPath" "js/aplayer.min.js" | merge $options -}}
-        {{- $options = dict "minify" true | merge $options -}}
-        {{- $options = dict "shims" $shims | merge $options -}}
-        {{- $js := resources.Get "js/lib/aplayer.js" | js.Build $options -}}
-        {{- $_ := $js.RelPermalink -}}
-        {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-    {{- end -}}
 {{- end -}}
 
 {{- /* Cookie Consent */ -}}

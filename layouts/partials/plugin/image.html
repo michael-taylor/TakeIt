@@ -1,4 +1,3 @@
-{{- /* lightgallery.js */ -}}
 {{- $src := .Src -}}
 {{- $height := "" -}}
 {{- $width := "" -}}
@@ -36,7 +35,7 @@
 {{- end -}}
 
 {{- if .Linked -}}
-    <a class="lightgallery" href="{{ $large | safeURL }}" title="{{ .Title | default $alt }}" data-thumbnail="{{ $small | safeURL }}"{{ with .Caption }} data-sub-html="<h2>{{ . }}</h2>{{ with $.Title }}<p>{{ . }}</p>{{ end }}"{{ end }}{{ with .Rel }} rel="{{ . }}"{{ end }}>
+    <a href="{{ $large | safeURL }}" title="{{ .Title | default $alt }}" data-thumbnail="{{ $small | safeURL }}"{{ with .Caption }} data-sub-html="<h2>{{ . }}</h2>{{ with $.Title }}<p>{{ . }}</p>{{ end }}"{{ end }}{{ with .Rel }} rel="{{ . }}"{{ end }}>
         <img
             {{ with .Class }}class="{{ . }}"{{ end }}
             loading="{{ $loading }}"
