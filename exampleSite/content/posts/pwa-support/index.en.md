@@ -128,11 +128,11 @@ Go to `config.toml`, add or change the option `enablePWA = true` under `[params]
 
 Now, an install button should show up when you visit your website and you will be able to install your site as an app.
 
-{{< image src="./Install-PWA.webp" caption="Install your PWA" height="693px" width="419px">}}
+{{< figure src="./Install-PWA.webp" caption="Install your PWA" height="693px" width="419px">}}
 
 After clicking "Install", your website should be installed as a native app.
 
-{{< image src="./Installed-PWA.webp" caption="Installed PWA" height="1575px" width="1321px">}}
+{{< figure src="./Installed-PWA.webp" caption="Installed PWA" height="1575px" width="1321px">}}
 
 Congratulation! You have successfully turned your static site into a PWA🎉
 

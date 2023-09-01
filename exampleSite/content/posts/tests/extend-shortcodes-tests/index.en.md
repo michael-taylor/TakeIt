@@ -13,24 +13,6 @@ hiddenFromSearch: true
 
 <!--more-->
 
-## style
-
-{{< style "text-align:right; strong{color:#00b1ff;}" >}}
-This is a **right-aligned** paragraph.
-{{< /style >}}
-
-## link
-
-{{< link "https://github.com/upstage/" Upstage "Visit Upstage!" >}}
-
-## image
-
-{{< image src="/images/lighthouse.webp" caption="Lighthouse (`image`)" src_s="/images/lighthouse-small.webp" src_l="/images/lighthouse-large.webp" >}}
-
-{{< image src="/images/lighthouse.webp" caption="Lighthouse (`image`)" src_s="/images/lighthouse-small.webp" src_l="/images/lighthouse-large.webp" >}}
-
-{{< image src="/images/lighthouse.webp" caption="Lighthouse (`image`)" src_s="/images/lighthouse-small.webp" src_l="/images/lighthouse-large.webp" >}}
-
 ## admonition
 
 {{< admonition >}}
@@ -89,8 +71,3 @@ open=false
 open=true
 {{< /admonition >}}
 
-## script
-
-{{< script >}}
-console.log('Hello!');
-{{< /script >}}

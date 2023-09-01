@@ -51,10 +51,6 @@ This is a **right-aligned** paragraph.
 
 The rendered output looks like this:
 
-{{< style "text-align:right; strong{color:#00b1ff;}" >}}
-This is a **right-aligned** paragraph.
-{{< /style >}}
-
 ## link
 
 {{< version 0.2.0 >}}
@@ -105,10 +101,6 @@ Or
 
 The rendered output looks like this:
 
-* {{< link "https://assemble.io" >}}
-* {{< link "mailto:contact@revolunet.com" >}}
-* {{< link "https://assemble.io" Assemble >}}
-
 Example `link` input with a title:
 
 ```markdown
@@ -118,8 +110,6 @@ Or
 ```
 
 The rendered output looks like this (hover over the link, there should be a tooltip):
-
-{{< link "https://github.com/upstage/" Upstage "Visit Upstage!" >}}
 
 ## image {#image}
 
@@ -187,7 +177,7 @@ Example `image` input:
 
 The rendered output looks like this:
 
-{{< image src="/images/lighthouse.webp" caption="Lighthouse (`image`)" src_s="/images/lighthouse-small.webp" src_l="/images/lighthouse-large.webp" >}}
+ {{< figure src="/images/lighthouse.webp" caption="Lighthouse (`image`)" src_s="/images/lighthouse-small.webp" src_l="/images/lighthouse-large.webp" >}}
 
 ## admonition
 
@@ -1016,8 +1006,6 @@ Or
 
 The rendered output looks like this:
 
-{{< mapbox 121.485 31.233 12 >}}
-
 Example `mapbox` input with the custom style:
 
 ```markdown
@@ -1027,229 +1015,6 @@ Or
 ```
 
 The rendered output looks like this:
-
-{{< mapbox -122.252 37.453 10 false "mapbox://styles/mapbox/navigation-preview-day-v4?optimize=true" "mapbox://styles/mapbox/navigation-preview-night-v4?optimize=true" >}}
-
-## music
-
-The `music` shortcode embeds a responsive music player based on [APlayer](https://github.com/MoePlayer/APlayer) and [MetingJS](https://github.com/metowolf/MetingJS).
-
-There are three ways to use the `music` shortcode.
-
-### Custom Music URL {#custom-music-url}
-
-{{< version 0.2.10 >}} The complete usage of [local resource references](../theme-documentation-content#contents-organization) is supported.
-
-The `music` shortcode has the following named parameters by custom music URL:
-
-* **server** *[required]*
-
-    URL of the custom music.
-
-* **name** *[optional]*
-
-    Name of the custom music.
-
-* **artist** *[optional]*
-
-    Artist of the custom music.
-
-* **cover** *[required]*
-
-    URL of the custom music cover.
-
-Example `music` input by custom music URL:
-
-```markdown
-{{</* music url="/music/Wavelength.mp3" name=Wavelength artist=oldmanyoung cover="/images/Wavelength.webp" */>}}
-```
-
-The rendered output looks like this:
-
-{{< music url="/music/Wavelength.mp3" name=Wavelength artist=oldmanyoung cover="/images/Wavelength.webp" >}}
-
-### Music Platform URL Automatic Identification {#automatic-identification}
-
-The `music` shortcode has one named parameter by music platform URL automatic identification:
-
-* **auto** *[required]* (**first** positional parameter)
-
-    URL of the music platform URL for automatic identification,
-    which supports `netease`, `tencent` and `xiami` music platforms.
-
-Example `music` input by music platform URL automatic identification:
-
-```markdown
-{{</* music auto="https://music.163.com/#/playlist?id=60198" */>}}
-Or
-{{</* music "https://music.163.com/#/playlist?id=60198" */>}}
-```
-
-The rendered output looks like this:
-
-{{< music auto="https://music.163.com/#/playlist?id=60198" >}}
-
-### Custom Server, Type and ID {#custom-server}
-
-The `music` shortcode has the following named parameters by custom music platform:
-
-* **server** *[required]* (**first** positional parameter)
-
-    [`netease`, `tencent`, `kugou`, `xiami`, `baidu`]
-
-    Music platform.
-
-* **type** *[required]* (**second** positional parameter)
-
-    [`song`, `playlist`, `album`, `search`, `artist`]
-
-    Type of the music.
-
-* **id** *[required]* (**third** positional parameter)
-
-    Song ID, or playlist ID, or album ID, or search keyword, or artist ID.
-
-Example `music` input by custom music platform:
-
-```markdown
-{{</* music server="netease" type="song" id="1868553" */>}}
-Or
-{{</* music netease song 1868553 */>}}
-```
-
-The rendered output looks like this:
-
-{{< music netease song 1868553 >}}
-
-### Other Parameters {#other-parameters}
-
-The `music` shortcode has other named parameters applying to the above three ways:
-
-* **theme** *[optional]*
-
-    {{< version 0.2.0 changed >}} the Main colour of the music player, the default value is `#448aff`.
-
-* **fixed** *[optional]*
-
-    Whether to enable fixed mode, the default value is `false`.
-
-* **mini** *[optional]*
-
-    Whether to enable mini mode, the default value is `false`.
-
-* **autoplay** *[optional]*
-
-    Whether to autoplay music, the default value is `false`.
-
-* **volume** *[optional]*
-
-    Default volume when the player is first opened, which will be remembered in the browser, the default value is `0.7`.
-
-* **mutex** *[optional]*
-
-    Whether to pause other players when this player starts playing, the default value is `true`.
-
-The `music` shortcode has the following named parameters only applying to the type of music list:
-
-* **loop** *[optional]*
-
-    [`all`, `one`, `none`]
-
-    Loop mode of the music list, the default value is `none`.
-
-* **order** *[optional]*
-
-    [`list`, `random`]
-
-    Play order of the music list, the default value is `list`.
-
-* **list-folded** *[optional]*
-
-    Whether the music list should be folded at first, the default value is `false`.
-
-* **list-max-height** *[optional]*
-
-    Max height of the music list, the default value is `340px`.
-
-
-## aplayer and audio
-
-{{< version 0.2.14 >}}
-
-If you need more advanced controls (custom playlist, mini mode, custom audio type...) over the music player, you can use the `aplayer` shortcode along with the `audio` shortcode to reach full power of [APlayer.js](https://aplayer.js.org).
-
-The `aplayer` shortcode is used to create an `APlayer` instance, and the `audio` shortcode is used to store data about each music file. Please refer to [APlayer.js documentation](https://aplayer.js.org/#/home?id=options) for all options.
-
-Example `aplayer` and `audio` input:
-
-```markdown
-{{</* aplayer fixed=false mini=false autoplay=false theme="#b7daff" loop="all" order="list" preload="auto" volume=0.7 mutex=true lrcType=1 listFolded=false listMaxHeight="" storageName="aplayer-setting" */>}}
-    {{</* audio name="Wavelength" artist="oldmanyoung" url="/music/Wavelength.mp3" cover="/images/Wavelength.webp" /*/>}}
-    {{</* audio name="Wavelength" artist="oldmanyoung" url="/music/Wavelength.mp3" cover="/images/Wavelength.webp" */>}}
-        [00:00.00]APlayer audio1
-        [00:04.01]is
-        [00:08.02]amazing
-    {{</* /audio */>}}
-{{</* /aplayer */>}}
-```
-
-Example `aplayer` and `audio` output:
-
-{{< aplayer fixed=false mini=false autoplay=false theme="#b7daff" loop="all" order="list" preload="auto" volume=0.7 mutex=true lrcType=1 listFolded=false listMaxHeight="" storageName="aplayer-setting" >}}
-    {{< audio name="Wavelength" artist="oldmanyoung" url="/music/Wavelength.mp3" cover="/images/Wavelength.webp" />}}
-    {{< audio name="Wavelength" artist="oldmanyoung" url="/music/Wavelength.mp3" cover="/images/Wavelength.webp" >}}
-        [00:00.00]APlayer audio1
-        [00:04.01]is
-        [00:08.02]amazing
-    {{< /audio >}}
-{{< /aplayer >}}
-
-Note that these shortcodes cannot be used separately and only named parameters are supported.
-
-If you place the LRC inside the `audio` shortcode, it is passed to the APlayer as a JS string, so the `lrcType` needs to be set to 1. If you set the link to the LRC file through the `lrc` parameter, it will be passed as an LRC file, so the `lrcType` needs to be set to 3.
-
-## bilibili
-
-{{< version 0.2.0 changed >}}
-
-The `bilibili` shortcode embeds a responsive video player for bilibili videos.
-
-When the video only has one part, only the BV `id` of the video is required, e.g.:
-
-```code
-https://www.bilibili.com/video/BV1Sx411T7QQ
-```
-
-Example `bilibili` input:
-
-```markdown
-{{</* bilibili BV1Sx411T7QQ */>}}
-Or
-{{</* bilibili id=BV1Sx411T7QQ */>}}
-```
-
-The rendered output looks like this:
-
-{{< bilibili id=BV1Sx411T7QQ >}}
-
-When the video has multiple parts, in addition to the BV `id` of the video,
-`p` is also required, whose default value is `1`, e.g.:
-
-```code
-https://www.bilibili.com/video/BV1TJ411C7An?p=3
-```
-
-Example `bilibili` input with `p`:
-
-```markdown
-{{</* bilibili BV1TJ411C7An 3 */>}}
-Or
-{{</* bilibili id=BV1TJ411C7An p=3 */>}}
-```
-
-The rendered output looks like this:
-
-{{< bilibili id=BV1TJ411C7An p=3 >}}
 
 ## typeit
 
@@ -1365,10 +1130,6 @@ console.log('Just DoIt!');
 ```
 
 You can see the output in the console of the developer tool.
-
-{{< script >}}
-console.log('Just DoIt!');
-{{< /script >}}
 
 ## friend
 

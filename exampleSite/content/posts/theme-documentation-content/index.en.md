@@ -245,7 +245,7 @@ resources:
 
 **DoIt** theme uses the summary of the content to display abstract information in the home page. Hugo can generate summaries of your content.
 
-{{< image src="summary.webp" caption="Summary Preview" width="1740" height="862" >}}
+ {{< figure src="summary.webp" caption="Summary Preview" width="1740" height="862" >}}
 
 ### Automatic Summary Splitting
 

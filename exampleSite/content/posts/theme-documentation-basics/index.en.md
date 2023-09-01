@@ -152,7 +152,7 @@ hugo serve
 
 Go to `http://localhost:1313`.
 
-{{< image src="basic-configuration-preview.webp" caption="Basic configuration preview" height="1562" width="2400">}}
+{{< figure src="basic-configuration-preview.webp" caption="Basic configuration preview" height="1562" width="2400">}}
 
 {{< admonition tip >}}
 When you run `hugo serve`, when the contents of the files change, the page automatically refreshes with the changes.
@@ -492,7 +492,7 @@ Please open the code block below to view the complete sample configuration :(far
       keepStatic = true
       # whether to make the table of the contents in the sidebar automatically collapsed
       auto = true
-    # {{< version 0.2.0 changed >}} {{< link "https://katex.org/" KaTeX >}} mathematical formulas
+    # {{< version 0.2.0 changed >}}  mathematical formulas
     [params.page.math]
       enable = true
       # default block delimiter is $$ ... $$ and \\[ ... \\]
@@ -515,7 +515,7 @@ Please open the code block below to view the complete sample configuration :(far
     [params.page.table]
       # whether to enable sorting in the tables
       sort = true
-    # {{< version 0.2.0 >}} {{< link "https://docs.mapbox.com/mapbox-gl-js" "Mapbox GL JS" >}} config
+    # {{< version 0.2.0 >}}  config
     [params.page.mapbox]
       # access token of Mapbox GL JS
       accessToken = ""
@@ -523,13 +523,13 @@ Please open the code block below to view the complete sample configuration :(far
       lightStyle = "mapbox://styles/mapbox/light-v9"
       # style for the dark theme
       darkStyle = "mapbox://styles/mapbox/dark-v9"
-      # whether to add {{< link "https://docs.mapbox.com/mapbox-gl-js/api#navigationcontrol" NavigationControl >}}
+      # whether to add  
       navigation = true
-      # whether to add {{< link "https://docs.mapbox.com/mapbox-gl-js/api#geolocatecontrol" GeolocateControl >}}
+      # whether to add  
       geolocate = true
-      # whether to add {{< link "https://docs.mapbox.com/mapbox-gl-js/api#scalecontrol" ScaleControl >}}
+      # whether to add  
       scale = true
-      # whether to add {{< link "https://docs.mapbox.com/mapbox-gl-js/api#fullscreencontrol" FullscreenControl >}}
+      # whether to add  
       fullscreen = true
     # {{< version 0.2.0 changed >}} social share links in post page
     [params.page.share]
@@ -565,13 +565,13 @@ Please open the code block below to view the complete sample configuration :(far
     # {{< version 0.2.0 changed >}} Comment config
     [params.page.comment]
       enable = true
-      # {{< link "https://disqus.com/" Disqus >}} comment config
+      #  comment config
       [params.page.comment.disqus]
         # {{< version 0.1.1 >}}
         enable = false
         # Disqus shortname to use Disqus in posts
         shortname = ""
-      # {{< link "https://github.com/gitalk/gitalk" Gitalk >}} comment config
+      #  comment config
       [params.page.comment.gitalk]
         # {{< version 0.1.1 >}}
         enable = false
@@ -579,7 +579,7 @@ Please open the code block below to view the complete sample configuration :(far
         repo = ""
         clientId = ""
         clientSecret = ""
-      # {{< link "https://github.com/xCss/Valine" Valine >}} comment config
+      #  comment config
       [params.page.comment.valine]
         enable = false
         appId = ""
@@ -600,7 +600,7 @@ Please open the code block below to view the complete sample configuration :(far
         # you can store your own data files in the same path under your project:
         # "assets/data/emoji/"
         emoji = ""
-      # {{< link "https://github.com/xCss/Valine" Waline >}} comment config
+      #  comment config
       [params.page.comment.waline]
         # {{< version 0.2.14 changed >}}
         enable = false
@@ -616,14 +616,14 @@ Please open the code block below to view the complete sample configuration :(far
         # imageUploader = false
         # highlighter = false
         # texRenderer = false
-      # {{< link "https://developers.facebook.com/docs/plugins/comments" "Facebook comment" >}} config
+      #  config
       [params.page.comment.facebook]
         enable = false
         width = "100%"
         numPosts = 10
         appId = ""
         languageCode = ""
-      # {{< version 0.2.0 >}} {{< link "https://comments.app/" "Telegram comments" >}} config
+      # {{< version 0.2.0 >}}  config
       [params.page.comment.telegram]
         enable = false
         siteID = ""
@@ -634,10 +634,10 @@ Please open the code block below to view the complete sample configuration :(far
         dislikes = false
         outlined = false
         dark = false
-      # {{< version 0.2.0 >}} {{< link "https://commento.io/" "Commento" >}} comment config
+      # {{< version 0.2.0 >}}  comment config
       [params.page.comment.commento]
         enable = false
-      # {{< version 0.2.5 >}} {{< link "https://utteranc.es/" "Utterances" >}} comment config
+      # {{< version 0.2.5 >}}  comment config
       [params.page.comment.utterances]
         enable = false
         # owner/repo
@@ -646,7 +646,7 @@ Please open the code block below to view the complete sample configuration :(far
         label = ""
         lightTheme = "github-light"
         darkTheme = "github-dark"
-      # {{< version 0.2.12 >}} {{< link "https://twikoo.js.org/" "Twikoo" >}} comment config
+      # {{< version 0.2.12 >}}  comment config
       [params.page.comment.twikoo]
         enable = false
         envId = ""
@@ -655,7 +655,7 @@ Please open the code block below to view the complete sample configuration :(far
         cloudbase = true # boolean : true / false. #If you deploy your Twikoo on CloudBase, set it to true.
         visitor = true
         commentCount = true
-      # {{< version 0.2.12 >}} {{< link "https://vssue.js.org/" "Vssue" >}} comment config
+      # {{< version 0.2.12 >}}  comment config
       [params.page.comment.vssue]
         enable = false
         platform = "" # ("bitbucket", "gitea", "gitee", "github", "gitlab")
@@ -663,7 +663,7 @@ Please open the code block below to view the complete sample configuration :(far
         repo = ""
         clientId = ""
         clientSecret = ""
-      # {{< version 0.2.13 >}} {{< link "https://remark42.com/" "Remark42" >}} comment config
+      # {{< version 0.2.13 >}}  comment config
       [params.page.comment.remark42]
         enable = false
         host = ""
@@ -671,7 +671,7 @@ Please open the code block below to view the complete sample configuration :(far
         max_shown_comments = 15
         show_email_subscription = true
         simple_view = false
-      # {{< version 0.2.13 >}} {{< link "https://giscus.app/" "giscus" >}} comment config
+      # {{< version 0.2.13 >}}  comment config
       [params.page.comment.giscus]
         enable = false
         # owner/repo
@@ -686,7 +686,7 @@ Please open the code block below to view the complete sample configuration :(far
         lightTheme = "light"
         darkTheme = "dark"
         dataLang = "en"
-      # {{< link "https://artalk.js.org/" "artalk" >}} comment config
+      #  comment config
       [page.comment.artalk]
         enable = false
         server = ""
@@ -825,14 +825,14 @@ Please open the code block below to view the complete sample configuration :(far
 
 # Markup related config in Hugo
 [markup]
-  # {{< link "https://gohugo.io/content-management/syntax-highlighting" "Syntax Highlighting" >}}
+  #  
   [markup.highlight]
     codeFences = true
     guessSyntax = true
     lineNos = true
     lineNumbersInTable = true
     # false is a necessary configuration
-    # ({{< link "https://github.com/dillonzq/LoveIt/issues/158" >}})
+    # ( )
     noClasses = false
   # Goldmark is from Hugo 0.60 the default library used for Markdown
   [markup.goldmark]
@@ -866,12 +866,12 @@ Please open the code block below to view the complete sample configuration :(far
   filename = "sitemap.xml"
   priority = 0.5
 
-# {{< link "https://gohugo.io/content-management/urls#permalinks" "Permalinks config" >}}
+#  
 [Permalinks]
   # posts = ":year/:month/:filename"
   posts = ":filename"
 
-# {{< link "https://gohugo.io/about/hugo-and-gdpr/" "Privacy config" >}}
+#  
 [privacy]
   # {{< version 0.2.0 deleted >}} privacy of the Google Analytics (replaced by params.analytics.google)
   [privacy.googleAnalytics]
@@ -986,7 +986,7 @@ The default data of all supported social links is located in `themes/DoIt/assets
 which is you can refer to.
 {{< /admonition >}}
 
-{{< image src="complete-configuration-preview.webp" caption="Complete configuration preview" height="1562" width="2450">}}
+ {{< figure src="complete-configuration-preview.webp" caption="Complete configuration preview" height="1562" width="2450">}}
 
 ### Favicons, Browserconfig, Manifest
 
@@ -1030,7 +1030,7 @@ In `assets/css/_custom.scss`, you can add some css style code to customize the s
 
 **DoIt** theme is fully compatible with Hugo multilingual mode, which provides in-browser language switching.
 
-{{< image src="language-switch.gif" caption="Language Switch" height="226" width="770">}}
+ {{< figure src="language-switch.gif" caption="Language Switch" height="226" width="770">}}
 
 ### Compatibility {#language-compatibility}
 
