@@ -648,14 +648,17 @@ function initTypedJs () {
     const typedjsConfig = window.config.typedjs
     const speed = typedjsConfig.speed ? typedjsConfig.speed : 100
     const cursor = typedjsConfig.cursorChar ? typedjsConfig.cursorChar : '|'
-    Object.values(typedjsConfig.data).forEach(group => {
-      const id = group
+    let delay = 0
+    Object.values(typedjsConfig.data).forEach((value) => {
+      const id = value
       if (!document.getElementById(id).hasAttribute('data-typedjs-id')) {
-        const instance = new Typed(`#${id}`, {
+        new Typed(`#${id}`, {
           strings: [window.config.data[id]],
           typeSpeed: speed,
-          cursorChar: cursor,
+          startDelay: delay,
+          cursorChar: cursor
         })
+        delay += ((window.config.data[id].length + 1) * speed)
       }
     })
   }
