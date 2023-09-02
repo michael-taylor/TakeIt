@@ -330,39 +330,6 @@
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app/">giscus</a>.
             </noscript>
         {{- end -}}
-
-        {{/*  Artalk Comment System  */}}
-        {{- $artalk := $comment.artalk | default dict -}}
-        {{- if $artalk.enable -}}
-            <div id="artalk"></div>
-            {{ if $artalk.lite }}
-                {{- $source := $cdn.artalkLiteJS | default "lib/artalk/ArtalkLite.js" -}}
-                {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
-                {{- $source := $cdn.artalkLiteCSS | default "lib/artalk/ArtalkLite.css" -}}
-                {{- dict "Source" $source "Minify" true "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
-            {{ else }}
-                {{- $source := $cdn.artalkJS | default "lib/artalk/Artalk.js" -}}
-                {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
-                {{- $source := $cdn.artalkCSS | default "lib/artalk/Artalk.css" -}}
-                {{- dict "Source" $source "Minify" true "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
-            {{ end }}
-            {{ if $artalk.katex }}
-                {{- $source := $cdn.artalkPluginKaTeXJS | default "lib/artalk/artalk-plugin-katex.js" -}}
-                {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
-            {{ end }}
-            {{- if $artalk.lightbox -}}
-                {{- $source := $cdn.artalkPluginLightboxJS | default "lib/artalk/artalk-plugin-lightbox.js" -}}
-                {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}
-            {{- end -}}
-            {{- $commentConfig = dict "el" "#artalk" "server" $artalk.server "site" $artalk.site | dict "artalk" | merge $commentConfig -}}
-            {{- $shims := dict "artalk" "js/shims/artalk.js" -}}
-            {{- $options := dict -}}
-            {{- $options = dict "targetPath" "js/artalk.min.js" | merge $options -}}
-            {{- $options = dict "minify" true | merge $options -}}
-            {{- $options = dict "shims" $shims | merge $options -}}
-            {{- $js := resources.Get "js/lib/artalk.js" | js.Build $options -}}
-            {{- dict "Link" $js.RelPermalink "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/commentScript.html" -}}            
-        {{- end -}}
     </div>
 {{- end -}}
 

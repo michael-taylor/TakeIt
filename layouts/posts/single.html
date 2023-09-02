@@ -112,11 +112,6 @@
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class="leancloud-visitors-count" id="twikoo_visitors"></span>&nbsp;{{ T "views" }}
                     </span>&nbsp;
                 {{- end -}}
-                {{- if $comment.enable | and $comment.artalk.enable | and $comment.artalk.pageview -}}
-                    <span id="{{ .RelPermalink }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
-                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class="leancloud-visitors-count" id="ArtalkPV"></span>&nbsp;{{ T "views" }}
-                    </span>&nbsp;
-                 {{- end -}}
 
                 {{- /* Comment Count */ -}}
                 {{- if $comment.enable | and $comment.waline.enable | and $comment.waline.comment -}}
@@ -129,11 +124,7 @@
                         <i class="far fa-comments fa-fw"></i>&nbsp;<span class="twikoo-comment-count" id="twikoo-comment-count"></span>&nbsp;{{ T "comments" }}
                     </span>&nbsp;
                 {{- end -}}
-                {{- if $comment.enable | and $comment.artalk.enable | and $comment.artalk.commentCount -}}
-                    <span id="{{ .RelPermalink }}" class="comment_count" data-flag-title="{{ .Title }}">
-                        <i class="far fa-comments fa-fw"></i>&nbsp;<span class="artalk-comment-count" id="ArtalkCount"></span>&nbsp;{{ T "comments" }}
-                    </span>&nbsp;
-                {{- end -}}
+
                 {{- /* License */ -}}
                 {{- $license := $params.license -}}
                 {{- with $license -}}
