@@ -61,7 +61,7 @@
 
 {{- /* typed.js */ -}}
 {{- with (.Scratch.Get "this").typedjsMap -}}
-    {{- $typedjs := $.Site.Params.typedjs -}}
+    {{- $typedjs := $.Site.Params.typeit -}}
     {{- $source := $cdn.typedJS | default "lib/typedjs/typed.umd.js" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" $.Scratch "Data" | partial "scratch/script.html" -}}
     {{- $config = dict "speed" $typedjs.speed "cursorChar" $typedjs.cursorChar "data" . | dict "typedjs" | merge $config -}}
