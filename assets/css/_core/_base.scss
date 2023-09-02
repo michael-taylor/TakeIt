@@ -69,3 +69,8 @@ body {
 img {
   object-fit: cover;
 }
+
+.magictime {
+  -webkit-animation-duration: 250ms;
+  animation-duration: 250ms;
+}
