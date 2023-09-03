@@ -1,9 +1,9 @@
 # website title
-title = "Hugo TakeIt Theme Documentation"
+title = "Hugo WriteIt Theme Documentation"
 # site default theme ("light", "dark", "black", "auto")
 defaultTheme = "auto"
 # site description
-description = "The official documentation for the Hugo TakeIt theme"
+description = "The official documentation for the Hugo WriteIt theme"
 # site keywords
 keywords = ["Theme", "Hugo"]
 # which hash function used for SRI, when empty, no SRI is used ("sha256", "sha384", "sha512", "md5")
@@ -27,7 +27,7 @@ license = '<a rel="license external nofollow noopener noreffer" href="https://op
     # URL of the LOGO
     logo = "https://hugodoit.pages.dev/images/avatar.webp"
     # title name
-    name = "TakeIt"
+    name = "WriteIt"
     # you can add extra information before the name (HTML format is supported), such as icons
     # pre = "<i class='far fa-edit fa-fw'></i>"
     # you can add extra information after the name (HTML format is supported), such as icons
