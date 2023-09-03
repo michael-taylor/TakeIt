@@ -8,8 +8,6 @@ description = "The official documentation for the Hugo TakeIt theme"
 keywords = ["Theme", "Hugo"]
 # which hash function used for SRI, when empty, no SRI is used ("sha256", "sha384", "sha512", "md5")
 fingerprint = ""
-# date format
-dateFormat = "2006-01-02"
 # website images for Open Graph and Twitter Cards
 images = ["/images/avatar.webp"]
 # enable PWA
@@ -62,8 +60,6 @@ license = '<a rel="license external nofollow noopener noreffer" href="https://op
 [section]
   # special amount of posts in each section page
   paginate = 20
-  # date format (month and day)
-  dateFormat = "01-02"
   # amount of RSS pages
   rss = 10
   # recently updated posts settings
@@ -77,8 +73,6 @@ license = '<a rel="license external nofollow noopener noreffer" href="https://op
 [list]
   # special amount of posts in each list page
   paginate = 20
-  # date format (month and day)
-  dateFormat = "01-02"
   # amount of RSS pages
   rss = 10
 
