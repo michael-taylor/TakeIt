@@ -1,7 +1,7 @@
 {
-    "name": "DoIt Theme Documentation",
-    "short_name": "DoIt Docs",
-    "description": "The documentation site for Hugo DoIt Theme",
+    "name": "WriteIt Theme Documentation",
+    "short_name": "WriteIt Docs",
+    "description": "The documentation site for Hugo WriteIt Theme",
     "start_url": "/",
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
