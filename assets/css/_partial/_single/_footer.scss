@@ -8,9 +8,6 @@
     [theme="dark"] & {
       border-bottom: 1px solid $global-border-color-dark;
     }
-    [theme="black"] & {
-      border-bottom: 1px solid $global-border-color-black;
-    }
 
     .post-info-line {
       display: flex;
@@ -23,9 +20,6 @@
         [theme="dark"] & {
           color: $global-font-secondary-color-dark;
         }
-        [theme="black"] & {
-          color: $global-font-secondary-color-black;
-        }
 
         @include link(false, false);
       }
@@ -36,9 +30,6 @@
 
         [theme="dark"] & {
           color: $global-font-secondary-color-dark;
-        }
-        [theme="black"] & {
-          color: $global-font-secondary-color-black;
         }
 
         @include link(false, false);

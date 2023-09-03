@@ -40,12 +40,6 @@
                 background-color: $sponsor-button-hover-background-color-dark;
             }
         }
-        [theme="black"] & {
-            background-color: $sponsor-button-background-color-black;
-            &:hover {
-                background-color: $sponsor-button-hover-background-color-black;
-            }
-        }
         span {
             vertical-align: top;
         }

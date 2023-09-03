@@ -8,9 +8,6 @@
     [theme="dark"] & {
         background: $friend-link-background-color-dark;
     }
-    [theme="black"] & {
-        background: $friend-link-background-color-black;
-    }
     -webkit-transition: transform 0.4s ease;
     -moz-transition: transform 0.4s ease;
     -o-transition: transform 0.4s ease;
@@ -35,16 +32,10 @@
         [theme="dark"] & {
             color: $friend-link-color-dark;
         }
-        [theme="black"] & {
-            color: $friend-link-color-black;
-        }
         &:hover {
             color: $friend-link-hover-color;
             [theme="dark"] & {
                 color: $friend-link-hover-color-dark;
-            }
-            [theme="black"] & {
-                color: $friend-link-hover-color-black;
             }
         }
         .friend-name-div {
@@ -62,9 +53,6 @@
             color: $global-font-secondary-color;
             [theme="dark"] & {
                 color: $global-font-secondary-color-dark;
-            }
-            [theme="black"] & {
-                color: $global-font-secondary-color-black;
             }
         }
     }

@@ -26,9 +26,6 @@
         [theme="dark"] & {
             background: var(--related-background-color-dark);
         }
-        [theme="black"] & {
-            background: var(--related-background-color-black);
-        }
     }
     
     .related-image {
@@ -64,12 +61,6 @@
             color: var(--related-color-dark);
             &:hover {
                 color: var(--related-hover-color-dark);
-            }
-        }
-        [theme="black"] & {
-            color: var(--related-color-black);
-            &:hover {
-                color: var(--related-hover-color-black);
             }
         }
     }
