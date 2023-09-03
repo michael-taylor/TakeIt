@@ -1,7 +1,7 @@
 {
-  "name": "takeit-src",
+  "name": "writeit-src",
   "version": "0.1.0",
-  "description": "TakeIt theme source file",
+  "description": "WriteIt theme source file",
   "private": true,
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run build:tailwind --watch\"",
@@ -11,11 +11,12 @@
     "server:production": "hugo server --source=exampleSite --themesDir ../.. --disableFastRender -e production",
     "server:tailwind": "npx tailwindcss --watch -i ./assets/css/tailwind.css -o ./assets/css/main.css",
     "algolia": "atomic-algolia",
-    "build:tailwind": "npx tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/main.css"
+    "build:tailwind": "npx tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/main.css",
+    "publish": "hugo --source=exampleSite --themesDir ../.. --destination docs"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/michael-taylor/TakeIt.git"
+    "url": "git+https://github.com/michael-taylor/WriteIt.git"
   },
   "keywords": [
     "hugo",
@@ -24,9 +25,9 @@
   "author": "Michael R. Taylor",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/michael-taylor/TakeIt/issues"
+    "url": "https://github.com/michael-taylor/WriteIt/issues"
   },
-  "homepage": "https://github.com/michael-taylor/TakeIt",
+  "homepage": "https://github.com/michael-taylor/WriteIt",
   "dependencies": {
     "atomic-algolia": "^0.3.19",
     "autocomplete.js": "^0.38.1",
