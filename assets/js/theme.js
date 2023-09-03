@@ -108,45 +108,10 @@ function initSwitchTheme () {
   Array.from(document.getElementsByClassName('theme-switch')).forEach(themeSwitch => {
     themeSwitch.addEventListener('click', () => {
       const currentTheme = document.body.getAttribute('theme')
-      if (currentTheme === 'dark') {
-        setColorTheme('black')
-      } else if (currentTheme === 'black') {
-        setColorTheme('light')
-      } else {
+      if (currentTheme === 'light') {
         setColorTheme('dark')
-      }
-      for (const event of window.switchThemeEventSet) event()
-    })
-  })
-}
-
-/**
- * Initialize the select theme button.
- */
-function initSelectTheme () {
-  Array.from(document.getElementsByClassName('color-theme-select')).forEach(themeSelect => {
-    // Get the current theme
-    const currentTheme = document.body.getAttribute('theme')
-    // Set the selected Index
-    for (let j = 0; j < themeSelect.options.length; j++) {
-      const i = themeSelect.options[j]
-      if (i.value === currentTheme) {
-        themeSelect.selectedIndex = j
-        break
-      }
-    }
-
-    themeSelect.addEventListener('change', () => {
-      const theme = themeSelect.value
-      window.localStorage && localStorage.setItem('theme', theme)
-      if (theme !== 'auto') {
-        setColorTheme(theme)
       } else {
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          setColorTheme('dark')
-        } else {
-          setColorTheme('light')
-        }
+        setColorTheme('light')
       }
       for (const event of window.switchThemeEventSet) event()
     })
@@ -190,11 +155,7 @@ function initSearch () {
     // Turn on the mask when clicking on the search button
     searchInput.addEventListener('focus', () => {
       loadScript('autocomplete-script', '/lib/autocomplete/autocomplete.min.js', () => initAutosearch())
-      if (window.config?.search?.type === 'algolia') {
-        loadScript('algolia-script', '/lib/algoliasearch/algoliasearch-lite.umd.min.js', null)
-      } else {
-        loadScript('fuse-script', '/lib/fuse/fuse.min.js', null)
-      }
+      loadScript('fuse-script', '/lib/fuse/fuse.min.js', null)
       document.body.classList.add('blur')
       header.classList.add('open')
     })
@@ -226,11 +187,7 @@ function initSearch () {
     // Turn on the mask when clicking on the search button
     searchToggle.addEventListener('click', () => {
       loadScript('autocomplete-script', '/lib/autocomplete/autocomplete.min.js', () => initAutosearch())
-      if (window.config?.search?.type === 'algolia') {
-        loadScript('algolia-script', '/lib/algoliasearch/algoliasearch-lite.umd.min.js', null)
-      } else {
-        loadScript('fuse-script', '/lib/fuse/fuse.min.js', null)
-      }
+      loadScript('fuse-script', '/lib/fuse/fuse.min.js', null)
       document.body.classList.add('blur')
       header.classList.add('open')
       searchInput.focus()
@@ -280,36 +237,7 @@ function initSearch () {
           searchClear.style.display = 'inline'
           callback(results)
         }
-        if (searchConfig.type === 'algolia') {
-          window._algoliaIndex = window._algoliaIndex || algoliasearch(searchConfig.algoliaAppID, searchConfig.algoliaSearchKey).initIndex(searchConfig.algoliaIndex)
-          window._algoliaIndex
-            .search(query, {
-              offset: 0,
-              length: maxResultLength * 8,
-              attributesToHighlight: ['title'],
-              attributesToRetrieve: ['*'],
-              attributesToSnippet: [`content:${snippetLength}`],
-              highlightPreTag: `<${highlightTag}>`,
-              highlightPostTag: `</${highlightTag}>`
-            })
-            .then(({ hits }) => {
-              const results = {}
-              hits.forEach(({ uri, date, _highlightResult: { title }, _snippetResult: { content } }) => {
-                if (results[uri] && results[uri].context.length > content.value) return
-                results[uri] = {
-                  uri,
-                  title: title.value,
-                  date,
-                  context: content.value
-                }
-              })
-              finish(Object.values(results).slice(0, maxResultLength))
-            })
-            .catch(err => {
-              console.error(err)
-              finish([])
-            })
-        } else if (searchConfig.type === 'fuse') {
+        if (searchConfig.type === 'fuse') {
           const search = () => {
             const results = {}
             window._index.search(query).forEach(({ item, refIndex, matches }) => {
@@ -378,13 +306,7 @@ function initSearch () {
         suggestion: ({ title, uri, date, context }) => `<div><a href=${uri}><span class="suggestion-title">${title}</span></a><span class="suggestion-date">${date}</span></div><div class="suggestion-context">${(context)}</div>`,
         empty: ({ query }) => `<div class="search-empty">${searchConfig.noResultsFound}: <span class="search-query">"${escape(query)}"</span></div>`,
         footer: () => {
-          const { searchType, icon, href } = searchConfig.type === 'algolia'
-            ? {
-                searchType: 'algolia',
-                icon: '<i class="fab fa-algolia fa-fw"></i>',
-                href: 'https://www.algolia.com/'
-              }
-            : {
+          const { searchType, icon, href } = {
                 searchType: 'Fuse.js',
                 icon: '',
                 href: 'https://fusejs.io/'
@@ -424,12 +346,6 @@ function initDetails () {
       $details.classList.toggle('open')
     }, false)
   })
-}
-
-function initLightGallery () {
-  if (window.config.lightGallery) {
-    lightGallery(document.getElementById('content'), window.config.lightGallery)
-  }
 }
 
 function initHighlight () {
@@ -592,57 +508,6 @@ function initToc () {
   }
 }
 
-function initMapbox () {
-  if (window.config.mapbox) {
-    mapboxgl.accessToken = window.config.mapbox.accessToken
-    mapboxgl.setRTLTextPlugin(window.config.mapbox.RTLTextPlugin)
-    window._mapboxArr = window._mapboxArr || []
-    forEach(document.getElementsByClassName('mapbox'), $mapbox => {
-      const { lng, lat, zoom, lightStyle, darkStyle, marked, navigation, geolocate, scale, fullscreen } = window.config.data[$mapbox.id]
-      const mapbox = new mapboxgl.Map({
-        container: $mapbox,
-        center: [lng, lat],
-        zoom,
-        minZoom: 0.2,
-        style: window.isDark ? darkStyle : lightStyle,
-        attributionControl: false
-      })
-      if (marked) {
-        new mapboxgl.Marker().setLngLat([lng, lat]).addTo(mapbox)
-      }
-      if (navigation) {
-        mapbox.addControl(new mapboxgl.NavigationControl(), 'bottom-right')
-      }
-      if (geolocate) {
-        mapbox.addControl(new mapboxgl.GeolocateControl({
-          positionOptions: {
-            enableHighAccuracy: true
-          },
-          showUserLocation: true,
-          trackUserLocation: true
-        }), 'bottom-right')
-      }
-      if (scale) {
-        mapbox.addControl(new mapboxgl.ScaleControl())
-      }
-      if (fullscreen) {
-        mapbox.addControl(new mapboxgl.FullscreenControl())
-      }
-      mapbox.addControl(new MapboxLanguage())
-      window._mapboxArr.push(mapbox)
-    })
-    window._mapboxOnSwitchTheme = () => {
-      forEach(window._mapboxArr, mapbox => {
-        const $mapbox = mapbox.getContainer()
-        const { lightStyle, darkStyle } = window.config.data[$mapbox.id]
-        mapbox.setStyle(window.isDark ? darkStyle : lightStyle)
-        mapbox.addControl(new MapboxLanguage())
-      })
-    }
-    window.switchThemeEventSet.add(window._mapboxOnSwitchTheme)
-  }
-}
-
 function initTypedJs () {
   if (window.config.typedjs) {
     const typedjsConfig = window.config.typedjs
@@ -676,8 +541,7 @@ function initMeta () {
   const themeColorMeta = getMeta('theme-color')
   const metaColors = {
     light: '#f8f8f8',
-    dark: '#252627',
-    black: '#000000'
+    dark: '#252627'
   }
   window._metaThemeColorOnSwitchTheme = () => {
     themeColorMeta.content = metaColors[document.body.getAttribute('theme')]
@@ -764,15 +628,12 @@ function init () {
   initSVGIcon()
   initMenuMobile()
   initSwitchTheme()
-  initSelectTheme()
   initMeta()
   initSearch()
   initDetails()
-  initLightGallery()
   initHighlight()
   initTable()
   initTypedJs()
-  initMapbox()
   initToc()
   onScroll()
   onResize()

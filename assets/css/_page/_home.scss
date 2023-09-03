@@ -62,9 +62,6 @@
       [theme=dark] & {
         color: $global-font-secondary-color-dark;
       }
-      [theme=black] & {
-        color: $global-font-secondary-color-black;
-      }
     }
   }
 }
@@ -88,10 +85,6 @@
     [theme=dark] & {
       color: $global-font-color-dark;
       border-bottom: 3px dashed $global-border-color-dark;
-    }
-    [theme=black] & {
-      color: $global-font-color-black;
-      border-bottom: 3px dashed $global-border-color-black;
     }
 
     .featured-image-preview {
@@ -134,9 +127,6 @@
       [theme=dark] & {
         color: $global-font-secondary-color-dark;
       }
-      [theme=black] & {
-        color: $global-font-secondary-color-black;
-      }
 
       h2,
       h3,
@@ -165,9 +155,6 @@
 
         [theme=dark] & {
           color: $global-font-secondary-color-dark;
-        }
-        [theme=black] & {
-          color: $global-font-secondary-color-black;
         }
       }
     }

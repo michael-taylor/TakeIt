@@ -22,9 +22,6 @@
         [theme=dark] & {
           color: $single-link-color-dark;
         }
-        [theme=black] & {
-          color: $single-link-color-black;
-        }
       }
 
       ul {
@@ -45,13 +42,6 @@
 
       rt {
         color: $global-font-secondary-color-dark;
-      }
-    }
-    [theme=black] & {
-      background: $code-background-color-black;
-
-      rt {
-        color: $global-font-secondary-color-black;
       }
     }
   }
@@ -76,9 +66,6 @@
 
   [theme=dark] & {
     border-left-color: $global-border-color-dark;
-  }
-  [theme=black] & {
-    border-left-color: $global-border-color-black;
   }
 
   .toc-title {
@@ -111,18 +98,12 @@
       [theme=dark] & {
         color: $single-link-color-dark;
       }
-      [theme=black] & {
-        color: $single-link-color-black;
-      }
 
       &::before {
         color: $single-link-hover-color;
 
         [theme=dark] & {
           color: $single-link-hover-color-dark;
-        }
-        [theme=black] & {
-          color: $single-link-hover-color-black;
         }
       }
     }
@@ -147,9 +128,6 @@
     [theme=dark] & {
       background: darken($code-background-color-dark, 6%);
     }
-    [theme=black] & {
-      background: darken($code-background-color-black, 6%);
-    }
   }
 
   .toc-content {
@@ -163,9 +141,6 @@
     [theme=dark] & {
       background-color: $code-background-color-dark;
     }
-    [theme=black] & {
-      background-color: $code-background-color-black;
-    }
   }
 
   &.open {
@@ -174,9 +149,6 @@
 
       [theme=dark] & {
         background: darken($code-background-color-dark, 3%);
-      }
-      [theme=black] & {
-        background: darken($code-background-color-black, 3%);
       }
     }
   }
