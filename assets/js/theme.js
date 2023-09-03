@@ -95,6 +95,14 @@ function setColorTheme (theme) {
   // set root color scheme
   // https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme
   document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark')
+  const icon = document.getElementById('theme-switch-icon')
+  if (theme === 'light') {
+    icon.classList.remove('fa-sun')
+    icon.classList.add('fa-moon')
+  } else {
+    icon.classList.remove('fa-moon')
+    icon.classList.add('fa-sun')
+  }
   // save to local storage
   window.localStorage && localStorage.setItem('theme', theme)
   // set window.isDark for js
@@ -105,6 +113,14 @@ function setColorTheme (theme) {
  * Initialize the switch theme button.
  */
 function initSwitchTheme () {
+  const icon = document.getElementById('theme-switch-icon')
+  if (document.body.getAttribute('theme') === 'light') {
+    icon.classList.remove('fa-sun')
+    icon.classList.add('fa-moon')
+  } else {
+    icon.classList.remove('fa-moon')
+    icon.classList.add('fa-sun')
+  }
   Array.from(document.getElementsByClassName('theme-switch')).forEach(themeSwitch => {
     themeSwitch.addEventListener('click', () => {
       const currentTheme = document.body.getAttribute('theme')
