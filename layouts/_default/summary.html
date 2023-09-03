@@ -35,49 +35,16 @@
 
     {{- /* Meta */ -}}
     <div class="post-meta">
-        <span class="post-author">
-            {{- partial "meta/author" . }}
-        </span>
-
-        {{- with .Site.Params.dateFormat | default "2006-01-02" | .PublishDate.Format -}}
-            &nbsp;<span class="post-publish">
+        {{- with .Site.Params.dateFormat | default "Jan 2, 2006" | .PublishDate.Format -}}
+            <span class="post-publish">
                 {{- printf `<time datetime="%v">%v</time>` . . | dict "Date" | T "publishedOnDate" | safeHTML -}}
             </span>
         {{- end -}}
 
-        {{- with (or (.Params.categories) (.Params.series)) -}}
-        &nbsp;<span class="post-category">
-            {{- T "includedIn" | safeHTML -}}
-        </span>
-    {{- end -}}
-    
-    {{- $categories := slice -}}
-    {{- range .Params.categories -}}
-        {{- $category := partialCached "function/path.html" . . | printf "/categories/%v" | $.Site.GetPage -}}
-        {{- $categories = $categories | append (printf `<a href="%v"><i class="far fa-folder fa-fw"></i>%v</a>` $category.RelPermalink $category.Title) -}}
-    {{- end -}}
-    {{- with delimit $categories "&nbsp;" -}}
-        &nbsp;<span class="post-category">
-            {{- dict "Categories" . "Count" (len $categories) | T "includedInCategories" | safeHTML -}}
-        </span>
-    {{- end -}}
-    
-    {{- with (and (.Params.categories) (.Params.series)) -}}
-        &nbsp;<span class="post-category">
-            {{- T "includedInAnd" | safeHTML -}}
-        </span>
-    {{- end -}}
-
-    {{- $series := slice -}}
-    {{- range .Params.series -}}
-        {{- $singleSeries := partialCached "function/path.html" . . | printf "/series/%v" | $.Site.GetPage -}}
-        {{- $series = $series | append (printf `<a href="%v"><i class="far fa-list-alt fa-fw"></i>%v</a>` $singleSeries.RelPermalink $singleSeries.Title) -}}
-    {{- end -}}
-    {{- with delimit $series "&nbsp;" -}}
-        &nbsp;<span class="post-series">
-            {{- dict "Series" . | T "includedInSeries" | safeHTML -}}
-        </span>
-    {{- end -}}
+        {{- if $params.enableReadingTime | default true -}}
+            &nbsp;&nbsp;
+            <i class="far fa-clock fa-fw"></i>&nbsp;{{ T "readingTime" .ReadingTime }}
+        {{- end -}}
     </div>
 
     {{- /* Summary content */ -}}
