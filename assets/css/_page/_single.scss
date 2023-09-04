@@ -19,14 +19,14 @@
 
   .post-meta {
     font-size: .875rem;
-    color: $global-font-secondary-color;
+    color: lighten($global-font-color, 20%);
 
     span {
       display: inline-block;
     }
 
     [theme=dark] & {
-      color: $global-font-secondary-color-dark;
+      color: darken($global-font-color-dark, 20%);
     }
 
     @include link(false, true);
@@ -124,9 +124,9 @@
     strong {
       font-weight: bold;
 
-      [theme=dark] & {
-        color: #ddd;
-      }
+      // [theme=dark] & {
+      //   color: #ddd;
+      // }
     }
 
     @include link(false, false);
@@ -359,18 +359,18 @@
 
     kbd {
       display: inline-block;
-      padding: .25rem;
-      background-color: $global-background-color;
+      padding: .1em;
+      background-color: $search-background-color;
       border: 1px solid $global-border-color;
       border-bottom-color: $global-border-color;
-      @include border-radius(3px);
+      @include border-radius(.5rem);
       @include box-shadow(inset 0 -1px 0 $global-border-color);
-      font-size: .8rem;
+      font-size: .9em;
       font-family: $code-font-family;
       color: $code-color;
 
       [theme=dark] & {
-        background-color: $global-background-color-dark;
+        background-color: $search-background-color-dark;
         border: 1px solid $global-border-color-dark;
         border-bottom-color: $global-border-color-dark;
         @include box-shadow(inset 0 -1px 0 $global-border-color-dark);

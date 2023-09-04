@@ -721,6 +721,10 @@ This is a footnote with "label"[^label]
 [^1]: This is a digital footnote
 [^label]: This is a footnote with "label"
 
+## Keyboard
+
+<kbd>Shift</kbd>+<kbd>Space</kbd>
+
 ## Images
 
 Images have a similar syntax to links but include a preceding exclamation point.

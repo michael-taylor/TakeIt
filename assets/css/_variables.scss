@@ -10,12 +10,12 @@ $global-font-weight: 400;
 $global-line-height: 1.5rem;
 
 // Color of the background
-$global-background-color: #fff !default;
-$global-background-color-dark: #292a2d !default;
+$global-background-color: #fbf1c7 !default;
+$global-background-color-dark: #282828 !default;
 
 // Color of the text
-$global-font-color: #161209 !default;
-$global-font-color-dark: #a9a9b3 !default;
+$global-font-color: #3c3836 !default;
+$global-font-color-dark: #ebdbb2 !default;
 
 // Color of the secondary text
 $global-font-secondary-color: #4d4d4d !default;
@@ -23,11 +23,11 @@ $global-font-secondary-color-dark: #b5b5b5 !default;
 
 // Color of the link
 $global-link-color: #161209 !default;
-$global-link-color-dark: #a9a9b3 !default;
+$global-link-color-dark: #83a598 !default;
 
 // Color of the hover link
 $global-link-hover-color: #2d96bd !default;
-$global-link-hover-color-dark: #fff !default;
+$global-link-hover-color-dark: #458588 !default;
 
 // Color of the border
 $global-border-color: #f0f0f0 !default;
@@ -56,8 +56,8 @@ $selection-color-dark: rgba(50, 112, 194, 0.4) !default;
 $header-height: 3.5rem !default;
 
 // Color of the header background
-$header-background-color: #f8f8f8 !default;
-$header-background-color-dark: #252627 !default;
+$header-background-color: #ebdbb2 !default;
+$header-background-color-dark: #3c3836 !default;
 
 // Font style of the header title
 $header-title-font-family: $global-font-family !default;
@@ -68,8 +68,8 @@ $header-hover-color: #161209 !default;
 $header-hover-color-dark: #fff !default;
 
 // Color of the search background
-$search-background-color: #e9e9e9 !default;
-$search-background-color-dark: #363636 !default;
+$search-background-color: #d5c4a1 !default;
+$search-background-color-dark: #504945 !default;
 // ========== Header ========== //
 
 // ========== Single Content ========== //
