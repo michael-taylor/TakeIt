@@ -31,6 +31,9 @@
     <link rel="feed" href="{{ .RelPermalink }}" type="application/rss+xml" title="{{ $.Site.Title }}">
 {{- end -}}
 
+{{/*  Site Font  */}}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato">
+
 {{/*  tailwind.css  */}}
 {{ $style := dict "Source" "css/main.css" "Fingerprint" $fingerprint }}
 {{- partial "plugin/style.html" $style -}}
