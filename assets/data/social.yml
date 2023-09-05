@@ -447,12 +447,12 @@ mastodon:
     Class: fab fa-mastodon fa-fw
 
 # 057: Thingiverse
-thingiverse:
-  Weight: 57
-  Prefix: https://www.thingiverse.com/
-  Title: Thingiverse
-  Icon:
-    Src: svg/icons/thingiverse.svg
+# thingiverse:
+#   Weight: 57
+#   Prefix: https://www.thingiverse.com/
+#   Title: Thingiverse
+#   Icon:
+#     Src: svg/icons/thingiverse.svg
 
 # 058: Dev.To
 devto:
@@ -486,12 +486,12 @@ matrix:
     Simpleicons: matrix
 
 # 062: bilibili
-bilibili:
-  Weight: 62
-  Prefix: https://space.bilibili.com/
-  Title: bilibili
-  Icon:
-    Src: svg/icons/bilibili.svg
+# bilibili:
+#   Weight: 62
+#   Prefix: https://space.bilibili.com/
+#   Title: bilibili
+#   Icon:
+#     Src: svg/icons/bilibili.svg
 
 # 063: ORCID
 orcid:
@@ -534,20 +534,20 @@ linktree:
     Simpleicons: linktree
 
 # 068: QQ
-qq:
-  Weight: 68
-  Template: http://wpa.qq.com/msgrd?v=3&uin=%v&site=qq&menu=yes
-  Title: QQ
-  Icon:
-    Src: svg/icons/qq.svg
+# qq:
+#   Weight: 68
+#   Template: http://wpa.qq.com/msgrd?v=3&uin=%v&site=qq&menu=yes
+#   Title: QQ
+#   Icon:
+#     Src: svg/icons/qq.svg
 
 # 069: QQGroup
-qqgroup:
-  Weight: 69
-  Template: https://qm.qq.com/cgi-bin/qm/qr?k=%v&jump_from=webapi
-  Title: QQGroup
-  Icon:
-    Src: svg/icons/qqGroup.svg
+# qqgroup:
+#   Weight: 69
+#   Template: https://qm.qq.com/cgi-bin/qm/qr?k=%v&jump_from=webapi
+#   Title: QQGroup
+#   Icon:
+#     Src: svg/icons/qqGroup.svg
 
 # 070: Diaspora
 diaspora:
