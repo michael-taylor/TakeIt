@@ -165,6 +165,23 @@ This is pre text
     -   Milk
     -   Cheese
 
+#### Definition list
+
+editor
+: a person who is in charge of and determines the final content of a text, particularly a newspaper or magazine
+
+publisher
+: a person or company that prepares and issues books, journals, music, or other works for sale
+
+writer
+: a person who has written a particular text
+
+#### Task list
+
+- [x] Write the press release
+- [ ] Update the website
+- [ ] Contact the media
+
 ## Other Elements — abbr, sub, sup, kbd, mark
 
 <abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.
