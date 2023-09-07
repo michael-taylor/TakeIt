@@ -7,6 +7,8 @@ tags: ["markdown", "css", "html", "themes"]
 categories: ["themes", "syntax"]
 ---
 
+<!--more-->
+
 ## `admonition`
 
 The `admonition` shortcode supports **12** types of banners to help you put a notice on your page.

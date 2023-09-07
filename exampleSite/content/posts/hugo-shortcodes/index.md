@@ -7,6 +7,8 @@ tags: ["markdown", "css", "html", "themes"]
 categories: ["themes", "syntax"]
 ---
 
+<!--more-->
+
 Here are the shortcodes built in to Hugo and demonstrations of their use.
 
 ## `figure`
