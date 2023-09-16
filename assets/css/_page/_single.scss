@@ -19,14 +19,14 @@
 
   .post-meta {
     font-size: .875rem;
-    color: lighten($global-font-color, 20%);
+    color: rgba($global-font-color, .7);
 
     span {
       display: inline-block;
     }
 
     [theme=dark] & {
-      color: darken($global-font-color-dark, 20%);
+      color: rgba($global-font-color-dark, .7);
     }
 
     @include link(false, true);

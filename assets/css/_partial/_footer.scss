@@ -4,10 +4,10 @@ footer {
   text-align: center;
   line-height: 1.25rem;
   padding: 1rem 0;
-  color: lighten($global-font-color, 20%);
+  color: rgba($global-font-color, .7);
 
   [theme=dark] & {
-    color: darken($global-font-color-dark, 20%);
+    color: rgba($global-font-color-dark, .7);
   }
 
   .footer-container {
@@ -23,10 +23,10 @@ footer {
   }
 
   a {
-    color: lighten($global-font-color, 20%);
+    color: rgba($global-font-color, .7);
 
     [theme=dark] & {
-      color: darken($global-font-color-dark, 20%);
+      color: rgba($global-font-color-dark, .7);
     }
   }
 
