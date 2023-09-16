@@ -866,7 +866,7 @@ The rendered output looks like this:
 
 ## `typeit`
 
-The `typeit` shortcode provides typing animation based on [TypeIt](https://typeitjs.com/).
+The `typeit` shortcode provides typing animation based on [Typed.js](https://mattboldt.com/demos/typed-js/).
 
 Just insert your content in the `typeit` shortcode and that’s it.
 
@@ -878,14 +878,14 @@ Example `typeit` input:
 
 ```markdown
 {{</* typeit */>}}
-This is a *paragraph* with **typing animation** based on [TypeIt](https://typeitjs.com/)...
+This is a *paragraph* with **typing animation** based on [Typed.js](https://mattboldt.com/demos/typed-js/)...
 {{</* /typeit */>}}
 ```
 
 The rendered output looks like this:
 
 {{< typeit >}}
-This is a *paragraph* with **typing animation** based on [TypeIt](https://typeitjs.com/)...
+This is a *paragraph* with **typing animation** based on [Typed.js](https://mattboldt.com/demos/typed-js/)...
 {{< /typeit >}}
 
 Alternatively, you can use custom **HTML tags**.
@@ -894,14 +894,14 @@ Example `typeit` input with `h4` tag:
 
 ```markdown
 {{</* typeit tag=h4 */>}}
-This is a *paragraph* with **typing animation** based on [TypeIt](https://typeitjs.com/)...
+This is a *paragraph* with **typing animation** based on [Typed.js](https://mattboldt.com/demos/typed-js/)...
 {{</* /typeit */>}}
 ```
 
 The rendered output looks like this:
 
 {{< typeit tag=h4 >}}
-This is a *paragraph* with **typing animation** based on [TypeIt](https://typeitjs.com/)...
+This is a *paragraph* with **typing animation** based on [Typed.js](https://mattboldt.com/demos/typed-js/)...
 {{< /typeit >}}
 
 ### Code Content {#code-content}
